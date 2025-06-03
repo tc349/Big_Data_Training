@@ -96,7 +96,10 @@ def main():
 	
 	
 	#13. Add a new column based on an operation on existing columns.,
-	df_employee_new = df_employee.withColumn("Bonus", when(df_employee.Department == "Engineering", df_employee.Salary * 0.1).when(df_employee.Department == "HR", df_employee.Salary * 0.05).otherwise(df_employee.Salary * 0.08)
+	df_employee_new = df_employee.withColumn("Bonus", 
+                        when(df_employee.Department == "Engineering", df_employee.Salary * 0.1)
+                        .when(df_employee.Department == "HR", df_employee.Salary * 0.05)
+                        .otherwise(df_employee.Salary * 0.08))
 	
 	df_employee_new.show()
 	
@@ -121,7 +124,7 @@ def main():
 	
 	
 	#16. Merge two DataFrames on a common column.,
-	df_merged = df_employee.join(df_department, on"Department", how="inner")
+	df_merged = df_employee.join(df_department, on="Department", how="inner")
 	df_merged.show()
 	
 	
@@ -151,5 +154,5 @@ def main():
 	df_trans.write.option("header", "true").csv("/tmp/US_UK_05052025/om_parkash/pyspark_output/employees_new")
 	
 	
-if __name__="__main__":
+if __name__=="__main__":
 	main()
