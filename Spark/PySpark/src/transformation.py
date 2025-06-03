@@ -109,7 +109,7 @@ def main():
 	
 	df_employee_dept_avg = df_employee_new.groupBy("Department").agg(avg("Salary").alias("avg_salary"), avg("Bonus").alias("avg_bonus"))
 	
-	df_employee.dept_avg.show()
+	df_employee_dept_avg.show()
 	
 	
 	#15. Sort the DataFrame based on a specific column.,
