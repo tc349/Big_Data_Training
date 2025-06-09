@@ -1,0 +1,6 @@
+.env
+.bsp/
+.metals/
+.scala-build/
+.vscode/
+.idea/
